@@ -1,158 +1,172 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "title": "Product validation API",
-        "description": "Validates a product configuration",
-        "version": "1.0.0"
+  "swagger": "2.0",
+  "info": {
+    "title": "Product validation API",
+    "description": "Validates a product configuration",
+    "version": "1.0.0"
+  },
+  "host": "shop.phonakpro.com",
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/products",
+  "tags": [
+    {
+      "name": "ProductHearingInstrument"
     },
-    "host": "shop.phonakpro.com",
-    "schemes": [
-        "https"
-    ],
-    "basePath": "/products",
-    "produces": [
-        "application/json"
-    ],
-    "paths": {
-        "/hearing-instruments/validate": {
-            "post": {
-                "summary": "Validates the given hearing instrument configuration",
-                "description": "",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "Hearing instrument configuration that must be validated",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ProductHearingInstrument"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Valid configuration"
-                    },
-                    "422": {
-                        "description": "Invalid configuration"
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        },
-        "/wireless-accessories/validate": {
-            "post": {
-                "summary": "Validates the given wireless accessory configuration",
-                "description": "",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "Wireless accessory configuration that must be validated",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ProductWirelessAccessory"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Valid configuration"
-                    },
-                    "422": {
-                        "description": "Invalid configuration"
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        }
-    },
-    "definitions": {
-        "ProductHearingInstrument": {
-            "type": "object",
-            "properties": {
-                "color": {
-                    "type": "string"
-                },
-                "family": {
-                    "type": "string"
-                },
-                "formFactor": {
-                    "type": "string"
-                },
-                "materialNumber": {
-                    "type": "string"
-                },
-                "model": {
-                    "type": "string"
-                },
-                "performanceLevel": {
-                    "type": "string"
-                },
-                "platform": {
-                    "type": "string"
-                },
-                "serialNumber": {
-                    "type": "string"
-                }
-            }
-        },
-        "ProductWirelessAccessory": {
-            "type": "object",
-            "properties": {
-                "color": {
-                    "type": "string"
-                },
-                "family": {
-                    "type": "string"
-                },
-                "materialNumber": {
-                    "type": "string"
-                },
-                "model": {
-                    "type": "string"
-                },
-                "serialNumber": {
-                    "type": "string"
-                }
-            }
-        },
-        "Error": {
-            "type": "object",
-            "properties": {
-                "code": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "message": {
-                    "type": "string"
-                },
-                "fields": {
-                    "type": "string"
-                }
-            }
-        }
+    {
+      "name": "ProductWirelessAccessory"
     }
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/hearing-instruments/validate": {
+      "post": {
+        "tags": [
+          "ProductHearingInstrument"
+        ],
+        "summary": "Validates the given hearing instrument configuration",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Hearing instrument configuration that must be validated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProductHearingInstrument"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valid configuration"
+          },
+          "422": {
+            "description": "Invalid configuration"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/wireless-accessories/validate": {
+      "post": {
+        "tags": [
+          "ProductWirelessAccessory"
+        ],
+        "summary": "Validates the given wireless accessory configuration",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Wireless accessory configuration that must be validated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProductWirelessAccessory"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valid configuration"
+          },
+          "422": {
+            "description": "Invalid configuration"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ProductHearingInstrument": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "formFactor": {
+          "type": "string"
+        },
+        "materialNumber": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "performanceLevel": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "serialNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "ProductWirelessAccessory": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "materialNumber": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "serialNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "string"
+        }
+      }
+    }
+  }
 }
