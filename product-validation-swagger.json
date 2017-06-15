@@ -3,7 +3,7 @@
   "info": {
     "title": "Product validation API",
     "description": "Validates a product configuration",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "host": "shop.phonakpro.com",
   "schemes": [
@@ -122,6 +122,9 @@
         "model": {
           "type": "string"
         },
+        "name": {
+          "type": "string"
+        },
         "performanceLevel": {
           "type": "string"
         },
@@ -146,6 +149,9 @@
           "type": "string"
         },
         "model": {
+          "type": "string"
+        },
+        "name": {
           "type": "string"
         },
         "serialNumber": {
